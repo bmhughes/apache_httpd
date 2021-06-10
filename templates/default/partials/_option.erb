@@ -1,0 +1,8 @@
+<% case @value %>
+<% when String %>
+<%= @option %> <%= @value %>
+<% when Array %>
+<% @value.each do |v| %>
+<%= @option %> <%= v %>
+<% end %>
+<% end %>

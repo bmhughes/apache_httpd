@@ -1,0 +1,20 @@
+<VirtualHost <%= @listen %>>
+    <% unless nil_or_empty?(@options) %>
+    # Options
+<%= template_partial_indent(render('partials/options.erb', cookbook: 'apache_httpd', variables: { options: @options }), 1, 4) %>
+    <% end -%>
+    <% unless nil_or_empty?(@location) %>
+
+   # Locations
+    <% @location.sort.each do |loc, options| %>
+<%= template_partial_indent(render('partials/location.erb', cookbook: 'apache_httpd', variables: { location: loc, options: options }), 1, 4) %>
+    <% end -%>
+    <% end -%>
+    <% unless nil_or_empty?(@directory) %>
+
+    # Directories
+    <% @directory.sort.each do |dir, options| %>
+<%= template_partial_indent(render('partials/directory.erb', cookbook: 'apache_httpd', variables: { directory: dir, options: options }), 1, 4) %>
+    <% end -%>
+    <% end -%>
+</VirtualHost>

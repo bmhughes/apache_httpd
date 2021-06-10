@@ -1,0 +1,8 @@
+name 'apache_httpd_test'
+maintainer 'Ben Hughes'
+maintainer_email 'Test@test.co.uk'
+license 'Apache-2.0'
+description 'apache_httpd_test'
+version '0.1.0'
+chef_version '>= 16.0'
+depends 'apache_httpd'

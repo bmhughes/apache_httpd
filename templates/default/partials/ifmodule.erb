@@ -1,0 +1,11 @@
+<IfModule <%= @module %>>
+<% @options.each do |option, value| %>
+<% if option.eql?('ifmodule') && value.is_a?(Hash) %>
+<% value.each do |nested_module, nested_module_opts| %>
+<%= template_partial_indent(render('partials/ifmodule.erb', cookbook: 'apache_httpd', variables: { module: nested_module, options: nested_module_opts }), 1, 4) %>
+<% end %>
+<% else %>
+<%= template_partial_indent(render('partials/_option.erb', cookbook: 'apache_httpd', variables: { option: option, value: value }), 1, 4) %>
+<% end %>
+<% end %>
+</IfModule>

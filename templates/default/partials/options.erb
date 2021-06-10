@@ -1,0 +1,3 @@
+<% @options.each do |option, value| %>
+<%= render('partials/_option.erb', cookbook: 'apache_httpd', variables: { option: option, value: value }) -%>
+<% end %>
